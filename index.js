@@ -1,32 +1,29 @@
 // TODO: Include packages needed for this application
 import fs from 'fs';
 import inquirer from 'inquirer';
+import generateMarkdown from './utils/generateMarkdown';
 
 // TODO: Create an array of questions for user input
 const questions = [
-    {name: title, text: "What is your project title?"},
-    {name: toc, text: "Do you need a table of contents? (for a longer readme)"},
-    {name: install, text: "Do you need an installation section?"},
-    {name: authors, text: "Who collaborated on this project? (to include yourself)"},
-    {name: license, text: "What license will your project be using?"},
-    {name: repo1, text: "Do you have a repository made already?"},
-    {name: repo2, text: "What's the directory path you're saving to?"},
+    {type: 'input', name: title, message: "What is your project title?"},
+    {type: 'input', name: description, message: "Give a brief description. i.e.: motivation, purpose"},
+    {type: 'input', name: install, message: "Give a brief explanation of installation instructions."},
+    {type: 'input', name: authors, message: "Who are the authors? Should include yourself, sources of code, collaborators, resources, etc."},
+    {type: 'input', name: license, message: "What license will your project need?"},
+    {type: 'input', name: restingPlace, message: "What's the directory path you're saving to?"},
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {
-    
+function writeToFile(data) {
+    fs.writeFile('README.md', data, (err) => {if (err) return err});
     console.log('Successfully created a readme!');
 };
 
 // TODO: Create a function to initialize app
 function init() {
-    inquirer
-        .prompt([
-            {
-            type: 'input'
-            }
-        ])
+    console.log('Program has started...');
+    inquirer.prompt(questions)
+    .then((answers) => {generateMarkdown(answers);});
 }
 
 // Function call to initialize app
