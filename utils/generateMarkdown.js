@@ -23,7 +23,7 @@ function renderLicenseLink(license) {
 function renderLicenseSection(license) {
   switch (license) {
     case 'mit':
-      return `## License\n\n${renderLicenseBadge(license)}\n\nThis project is licensed under the ${renderLicenseLink(license)} License.`;
+      return `## License\n\nThis project is licensed under the ${renderLicenseLink(license)} License.\n\n## Badges\n\n${renderLicenseBadge(license)}`;
   }
 }
 
@@ -40,6 +40,7 @@ function generateMarkdown(data) {
     - [Installation](#installation)
     - [Usage](#usage)
     - [Credits](#credits)
+    - [How To Contribute](#how-to-contribute)
     - [License](#license)
     - [Badges](#badges)
 
@@ -61,6 +62,10 @@ function generateMarkdown(data) {
 
     ${data.authors}
 
+    ## How To Contribute
+    
+
+    ${renderLicenseSection(license)}
 `;
 }
 
