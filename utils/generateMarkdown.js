@@ -69,7 +69,7 @@ function generateMarkdown(data) {
     
     In this section, you want to give instructions on how others can contribute to your project.
     
-    ${renderLicenseSection(license)}
+    ${renderLicenseSection(data.license)}
 `;
 }
 
