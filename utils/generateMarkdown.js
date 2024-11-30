@@ -1,8 +1,8 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
-function renderLicenseBadge(confirmLicense, license) {
-  if (confirmLicense === true) {
-    return `![Static Badge](https://img.shields.io/badge/License-${license}-blue)`
+function renderLicenseBadge(data) {
+  if (data.confirmLicense === true) {
+    return `![Static Badge](https://img.shields.io/badge/License-${data.license}-blue)`
   } else {
     return '';
   };
@@ -10,9 +10,9 @@ function renderLicenseBadge(confirmLicense, license) {
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
-function renderLicenseLink(confirmLicense, license) {
-  if (confirmLicense === true) {
-    return `[${license}](https://choosealicense.com/licenses/${license}/)`;
+function renderLicenseLink(data) {
+  if (data.confirmLicense === true) {
+    return `[${data.license}](https://choosealicense.com/licenses/${data.license}/)`;
   } else {
     return '';
   };
@@ -20,56 +20,59 @@ function renderLicenseLink(confirmLicense, license) {
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(confirmLicense, license) {
-  if (confirmLicense === true) {
-    return `## License\n\nThis project is licensed under the ${renderLicenseLink(license)} License.\n\n## Badges\n\n${renderLicenseBadge(license)}`;
+function renderLicenseSection(data) {
+  if (data.confirmLicense === true) {
+    return `## License\n\nThis project is licensed under the ${renderLicenseLink(data)} License.\n\n## Badges\n\n${renderLicenseBadge(data)}`;
   } else {
     return '';
-  };
+  }
 }
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  return `# ${data.title}
+  return `
+# ${data.title}
 
-    # Description
+# Description
 
-    ${data.description}
+${data.description}
 
-    # Table Of Contents
+# Table Of Contents
 
-    - [Installation](#installation)
-    - [Usage](#usage)
-    - [Credits](#credits)
-    - [How To Contribute](#how-to-contribute)
-    - [License](#license)
-    - [Badges](#badges)
+- [Installation](#installation)
+- [Dependancies Required](#dependancies-required)
+- [Usage](#usage)
+- [Credits](#credits)
+- [How To Contribute](#how-to-contribute)
+- [License](#license)
+- [Badges](#badges)
 
-    # Installation
+# Installation
     
-    ## Dependancies Required
+## Dependancies Required
 
-    ${data.dependancies}
+${data.dependancies}
 
-    ## Installing this project
+## Installing this project
 
-    ${data.install}
+${data.install}
     
-    # Usage
+# Usage
     
-    In this section, you should write a description of instructions on how to use your application.
-    To add a screenshot, create an assets/images folder in your repository and place your screenshot in it. 
-    Then, using the relative filepath, add it to your README. Don't forget to use Markdown Language!
+In this section, you should write a description of instructions on how to use your application.
+To add a screenshot, create an assets/images folder in your repository and place your screenshot in it. 
+Then, using the relative filepath, add it to your README. Don't forget to use Markdown Language!
     
-    # Contributors
+# Contributors
     
-    ${data.contributors}
+${data.contributors}
     
-    # How To Contribute
+# How To Contribute
     
-    In this section, you want to give instructions on how others can contribute to your project.
+In this section, you want to give details on how others can contribute to your project.
     
-    ${renderLicenseSection(data.license)}
+${renderLicenseSection(data)}
+
 `;
 }
 

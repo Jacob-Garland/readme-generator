@@ -48,7 +48,7 @@ const questions = [
 function writeToFile(fileName, data) {
     fs.writeFile(fileName, generateMarkdown(data), (err) => {if (err) throw err});
     console.log('Successfully created a readme file! Thank you for using the Readme Generator.');
-    console.log('Check the finalProduct folder of this program for your readme.md');
+    console.log('Check the finalProduct folder of this application for your readme.md');
     console.log('Program has ended...')
 };
 

@@ -8,17 +8,23 @@ By using this readme generator, you can create a framework for a readme.md in yo
 
 ## Table of Contents
 
-- [Screenshots](#screenshots)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Credits](#credits)
 - [License](#license)
 
-## Screenshots
-
 ## Installation
 
+To use this application, clone the repository to your local computer.
+
 ## Usage
+
+1. Open the file path to the parent directory in your terminal.
+2. Enter the command 'node index.js' to start the app.
+3. Answer the questions and enjoy! When you are done, the readme produce will end up in the 'finalProduct' folder.
+4. Move your readmes generated anywhere you want to, for all your projects.
+
+NOTE: every readme produced by the generator will have the same 'readme.md' file name and will always save to the same location unless coded otherwise. If you have a readme in the 'finalProduct' folder you want to keep, you must move and/or copy it to another location or it will be overwritten and lost.
 
 ## Credits
 
